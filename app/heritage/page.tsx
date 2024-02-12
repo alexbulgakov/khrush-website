@@ -1,3 +1,3 @@
 export default function Page() {
-  return <h1>Mosaic</h1>;
+  return <h1>Heritage</h1>;
 }
