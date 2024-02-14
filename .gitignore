@@ -15,6 +15,7 @@
 
 # production
 /build
+/studio/dist
 
 # misc
 .DS_Store
@@ -34,3 +35,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Env files created by scripts for working locally
+.env
+studio/.env.development
+
+.vercel
+.env*.local

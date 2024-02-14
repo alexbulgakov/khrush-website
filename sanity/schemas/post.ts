@@ -33,13 +33,6 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "categories",
-      title: "Категория",
-      type: "array",
-      of: [{ type: "reference", to: { type: "category" } }],
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
       name: "mainImage",
       title: "Главное фото",
       type: "image",
