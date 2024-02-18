@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import styles from "./Header.module.css";
+import styles from "./Header.module.scss";
 
 export default function Header() {
   const pathname = usePathname();
@@ -11,9 +11,9 @@ export default function Header() {
     <header>
       <Link
         className={`styles.link ${
-          pathname === "/heritage/mosaic" ? styles.active : ""
+          pathname === "/heritage/mosaics" ? styles.active : ""
         }`}
-        href={"/heritage/mosaic"}
+        href={"/heritage/mosaics"}
       >
         Мозаики
       </Link>

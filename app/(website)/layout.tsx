@@ -1,7 +1,7 @@
-import Header from "@/app/_components/Header/Header";
 import { draftMode } from "next/headers";
 import dynamic from "next/dynamic";
 import type { Metadata } from "next";
+import Header from "@/components/global/Header/Header";
 
 export const metadata: Metadata = {
   title: "Храш",
