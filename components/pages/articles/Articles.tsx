@@ -6,7 +6,7 @@ export default function Articles({ posts }: { posts: SanityDocument[] }) {
     <ul>
       {posts?.map((post) => (
         <li key={post._id}>
-          <Link href={post.slug.current}>{post.title}</Link>
+          <Link href={`mosaics/${post.slug.current}`}>{post.title}</Link>
         </li>
       ))}
     </ul>

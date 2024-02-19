@@ -1,5 +1,3 @@
-import { draftMode } from "next/headers";
-import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import Header from "@/components/global/Header/Header";
 
@@ -21,16 +19,11 @@ export const metadata: Metadata = {
   manifest: "/favicon/site.webmanifest",
 };
 
-const LiveVisualEditing = dynamic(
-  () => import("@/sanity/loader/LiveVisualEditing")
-);
-
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header />
       {children}
-      {draftMode().isEnabled && <LiveVisualEditing />}
     </>
   );
 }
