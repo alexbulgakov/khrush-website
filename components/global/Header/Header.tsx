@@ -1,22 +1,35 @@
-"use client";
+'use client'
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import styles from "./Header.module.scss";
+import logoLight from '@/public/logo/logo_light.png'
+// import { usePathname } from 'next/navigation'
+import { Text } from '@mantine/core'
+import Image from 'next/image'
+// import Link from 'next/link'
+
+import styles from './Header.module.scss'
 
 export default function Header() {
-  const pathname = usePathname();
+  // const pathname = usePathname()
 
   return (
     <header>
-      <Link
-        className={`styles.link ${
-          pathname === "/heritage/mosaics" ? styles.active : ""
-        }`}
-        href={"/heritage/mosaics"}
+      <Image
+        placeholder="blur"
+        src={logoLight}
+        height={100}
+        width={100}
+        alt="logo"
+      />
+      <Text size="xl" fw={700}>
+        Храш
+      </Text>
+
+      {/* <Link
+        className={`styles.link ${pathname === '/heritage/mosaics' ? '' : ''}`}
+        href={'/heritage/mosaics'}
       >
         Мозаики
-      </Link>
+      </Link> */}
     </header>
-  );
+  )
 }
