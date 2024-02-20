@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import Header from '@/components/global/Header/Header'
+import Header from '@/components/header'
 
 import 'normalize.css/normalize.css'
 import '@/styles/global.scss'

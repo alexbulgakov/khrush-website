@@ -1,0 +1,30 @@
+.header {
+  width: 100%;
+  height: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition:
+    background-color 0.5s ease,
+    top 0.5s ease,
+    width 0.5s ease,
+    height 0.5s ease;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.scrolled {
+    background: rgba(255, 255, 255, 0.5);
+    position: fixed;
+    height: 100px;
+    color: #000;
+    transition:
+      background-color 0.5s ease,
+      top 0.5s ease,
+      width 0.5s ease,
+      height 0.5s ease;
+    border-bottom: 1px solid #000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  }
+}

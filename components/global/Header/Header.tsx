@@ -1,18 +1,34 @@
 'use client'
 
+// import Link from 'next/link'
+import { useEffect, useState } from 'react'
+
 import logoLight from '@/public/logo/logo_light.png'
 // import { usePathname } from 'next/navigation'
 import { Text } from '@mantine/core'
 import Image from 'next/image'
-// import Link from 'next/link'
 
 import styles from './Header.module.scss'
 
 export default function Header() {
   // const pathname = usePathname()
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 50)
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <header>
+    <header
+      className={
+        isScrolled ? `${styles.header} ${styles.scrolled}` : styles.header
+      }
+    >
       <Image
         placeholder="blur"
         src={logoLight}

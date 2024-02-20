@@ -1,5 +1,5 @@
+import { Nunito, Exo_2 } from 'next/font/google'
 import { createTheme } from '@mantine/core'
-import { Nunito } from 'next/font/google'
 
 const nunito = Nunito({
   weight: ['400', '700'],
@@ -7,6 +7,14 @@ const nunito = Nunito({
   display: 'swap',
 })
 
+const exo = Exo_2({
+  weight: ['400', '700'],
+  subsets: ['cyrillic'],
+  display: 'swap',
+})
+
 export const theme = createTheme({
-  fontFamily: `${nunito.style.fontFamily}, sans-serif`,
+  // headings: { fontFamily: `${nunito.style.fontFamily}, sans-serif` },
+  headings: { fontFamily: `${exo.style.fontFamily}, sans-serif` },
+  fontFamily: `${exo.style.fontFamily}, sans-serif`,
 })
