@@ -18,7 +18,7 @@ import styles from './style.module.scss'
 const ColorSchemeToggle = dynamic(
   () => import('@/components/shared/ColorSchemeToggle/ColorSchemeToggle'),
   { ssr: false },
-)
+) //сделать то же самое для шапки
 
 export default function index() {
   const [isActive, setIsActive] = useState(false)

@@ -1,6 +1,8 @@
-import { Container, Image, Title, Text } from '@mantine/core'
+'use client'
 
-import image from './image.png'
+import { Container, Image, Title } from '@mantine/core'
+
+import ImageTest from '../image-test/image'
 
 import classes from './Hero.module.scss'
 
@@ -11,7 +13,8 @@ export default function Hero() {
         <div className={classes.content}>
           <Title className={classes.title}>НЕСКУЧНАЯ ИСТОРИЯ</Title>
         </div>
-        <Image className={classes.image} src={image.src} />
+
+        <ImageTest />
       </div>
     </Container>
   )
