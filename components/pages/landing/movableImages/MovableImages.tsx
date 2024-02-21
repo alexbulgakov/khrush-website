@@ -1,15 +1,18 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 
 import image from '@/public/image.png'
 import Image from 'next/image'
 
-import './style.css'
-export default function ImageTest() {
-  let bounds
-  const inputRef = useRef()
-  const glowRef = useRef()
-  const rotateToMouse = (e) => {
-    bounds = inputRef.current.getBoundingClientRect()
+import classes from './MovableImages.module.scss'
+
+export default function MovableImages() {
+  const inputRef = useRef<HTMLDivElement>(null)
+  const glowRef = useRef<HTMLDivElement>(null)
+
+  const rotateToMouse = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!inputRef.current || !glowRef.current) return
+
+    const bounds = inputRef.current.getBoundingClientRect()
     const mouseX = e.clientX
     const mouseY = e.clientY
     const leftX = mouseX - bounds.x
@@ -40,31 +43,31 @@ export default function ImageTest() {
       )
     `
   }
-  const removeListener = (e) => {
-    inputRef.current.style.transform = ''
-    inputRef.current.style.background = ''
+
+  const removeListener = () => {
+    if (inputRef.current) {
+      inputRef.current.style.transform = ''
+      inputRef.current.style.background = ''
+    }
   }
-  useEffect(() => {})
 
   return (
-    <div className="app">
+    <div className={classes.imageContainer}>
       <div
+        className={classes.imageAnimatedWrapper}
         onMouseLeave={removeListener}
         onMouseMove={rotateToMouse}
-        className="card"
         ref={inputRef}
       >
         <Image
-          style={{
-            objectFit: 'cover',
-          }}
+          style={{ objectFit: 'cover' }}
           alt="Picture of the author"
           quality={100}
           sizes="100vw"
           src={image}
           fill
         />
-        <div className="glow" ref={glowRef} />
+        <div className={classes.glow} ref={glowRef} />
       </div>
     </div>
   )
