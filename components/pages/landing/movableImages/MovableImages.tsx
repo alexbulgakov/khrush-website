@@ -1,13 +1,54 @@
-import { useRef } from 'react'
+'use client'
 
-import image from '@/public/image.png'
+import { useEffect, useState, useRef } from 'react'
+
+import novosibirsk from '@/public/hero-images/novosibirsk.png'
+import mangazeya from '@/public/hero-images/mangazeya.png'
+import biysk from '@/public/hero-images/biysk.png'
+import tomsk from '@/public/hero-images/tomsk.png'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 import classes from './MovableImages.module.scss'
 
+const images = [
+  {
+    alt: 'Новосибирск',
+    src: novosibirsk,
+    id: 0,
+  },
+  {
+    alt: 'Бийск',
+    src: biysk,
+    id: 1,
+  },
+  {
+    alt: 'Мангазея',
+    src: mangazeya,
+    id: 2,
+  },
+  {
+    alt: 'Томск',
+    src: tomsk,
+    id: 3,
+  },
+]
+
 export default function MovableImages() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
   const inputRef = useRef<HTMLDivElement>(null)
   const glowRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
+    }, 10000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  const image = images[currentImageIndex]
 
   const rotateToMouse = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!inputRef.current || !glowRef.current) return
@@ -59,14 +100,22 @@ export default function MovableImages() {
         onMouseMove={rotateToMouse}
         ref={inputRef}
       >
-        <Image
-          style={{ objectFit: 'cover' }}
-          alt="Picture of the author"
-          quality={100}
-          sizes="100vw"
-          src={image}
-          fill
-        />
+        <motion.div
+          transition={{ type: 'tween' }}
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          exit={{ opacity: 0 }}
+          key={image.id}
+        >
+          <Image
+            style={{ objectFit: 'cover' }}
+            src={image.src}
+            alt={image.alt}
+            quality={100}
+            sizes="100vw"
+            fill
+          />
+        </motion.div>
         <div className={classes.glow} ref={glowRef} />
       </div>
     </div>

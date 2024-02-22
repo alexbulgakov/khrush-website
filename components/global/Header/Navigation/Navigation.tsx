@@ -3,42 +3,47 @@ import { useState } from 'react'
 
 import { motion } from 'framer-motion'
 
-import { height } from '../anim'
-import Footer from './Footer'
-import Image from './Image'
-import Body from './Body'
+import NavImage from './NavImage/NavImage'
+import { height } from '../animation'
+import Footer from './Footer/Footer'
+import Body from './Body/Body'
 
-import styles from './style.module.scss'
+import styles from './Navigation.module.scss'
 
 const links = [
   {
+    href: '/heritage/mosaics',
+    src: 'mosaics.jpg',
     title: 'Мозаики',
-    src: 'home.png',
-    href: '/',
   },
   {
+    href: '/heritage/architecture',
+    src: 'architecture.jpg',
     title: 'Архитектура',
-    src: 'shop.png',
-    href: '/shop',
   },
   {
+    href: '/heritage/monuments',
+    src: 'monuments.jpg',
     title: 'Памятники',
-    src: 'home.png',
-    href: '/about',
   },
   {
-    src: 'lookbook.png',
-    title: 'Газосвет',
-    href: '/lookbook',
+    href: '/heritage/signage',
+    src: 'signage.jpg',
+    title: 'Вывески',
   },
   {
-    src: 'contact.png',
+    href: '/heritage/stained-glass-windows',
+    src: 'stained-glass-windows.jpg',
     title: 'Витражи',
-    href: '/contact',
+  },
+  {
+    href: '/heritage/reliefs',
+    src: 'reliefs.jpg',
+    title: 'Рельефы',
   },
 ]
 
-export default function Index() {
+export default function Navigation() {
   const [selectedLink, setSelectedLink] = useState({
     isActive: false,
     index: 0,
@@ -61,7 +66,7 @@ export default function Index() {
           />
           <Footer />
         </div>
-        <Image
+        <NavImage
           src={links[selectedLink.index].src}
           isActive={selectedLink.isActive}
         />

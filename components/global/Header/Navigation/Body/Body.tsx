@@ -1,13 +1,23 @@
+import { ReactNode } from 'react'
+
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-import { translate, blur } from '../../anim'
+import { translate, blur } from '../../animation'
 
-import styles from './style.module.scss'
+import styles from './Body.module.scss'
 
-export default function Body({ setSelectedLink, selectedLink, links }) {
-  const getChars = (word) => {
-    let chars = []
+export default function Body({
+  setSelectedLink,
+  selectedLink,
+  links,
+}: {
+  setSelectedLink: (selectedLink: { isActive: boolean; index: number }) => void
+  selectedLink: { isActive: boolean; index: number }
+  links: Array<{ title: string; href: string }>
+}) {
+  const getChars = (word: string) => {
+    const chars: ReactNode[] = []
     word.split('').forEach((char, i) => {
       chars.push(
         <motion.span

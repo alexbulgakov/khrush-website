@@ -3,8 +3,8 @@
 }
 
 .imageAnimatedWrapper {
-  width: 600px;
-  height: 600px;
+  width: 700px;
+  height: 700px;
   box-shadow: var(--mantine-shadow-xl);
   border-radius: 50%;
   transition-duration: 300ms;
@@ -26,4 +26,9 @@
     border-radius: 50%;
     background-image: radial-gradient(circle at 50% -20%, #ffffff22, #0000000f);
   }
+}
+.progressBar {
+  height: 4px;
+  background-color: #007bff; /* Цвет фона прогресс-бара */
+  margin-top: 10px; /* Отступ сверху */
 }
