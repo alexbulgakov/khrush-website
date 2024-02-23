@@ -4,7 +4,8 @@
   box-sizing: border-box;
   padding: 10px;
   box-shadow: 0px 0px 10px 0px var(--chakra-colors-chakra-body-text);
-  z-index: 100;
+  background-color: var(--chakra-colors-chakra-body-bg);
+  z-index: 10;
 
   .background {
     background-color: var(--chakra-colors-chakra-body-text);
@@ -34,6 +35,7 @@
 
       &Text {
         margin-bottom: 4px;
+        font-weight: 500;
       }
     }
 
@@ -134,7 +136,7 @@
     }
 
     .logo {
-      font-size: 35px;
+      font-size: 40px;
     }
 
     .shop {

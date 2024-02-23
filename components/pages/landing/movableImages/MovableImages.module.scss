@@ -9,7 +9,9 @@
 .imageAnimatedWrapper {
   width: 700px;
   height: 700px;
-  // box-shadow: var(--mantine-shadow-xl);
+  box-shadow:
+    0 40px 60px rgba(0, 0, 0, 0.3),
+    0 10px 30px rgba(241, 239, 239, 0.2);
   border-radius: 50%;
   transition-duration: 300ms;
   transition-property: transform, box-shadow;
@@ -19,7 +21,9 @@
 
   &:hover {
     transition-duration: 150ms;
-    // box-shadow: var(--mantine-shadow-xl);
+    box-shadow:
+      0 40px 60px rgba(0, 0, 0, 0.5),
+      0 10px 30px rgba(241, 239, 239, 0.4);
   }
 
   .glow {
@@ -31,24 +35,4 @@
     border-radius: 50%;
     background-image: radial-gradient(circle at 50% -20%, #ffffff22, #0000000f);
   }
-}
-
-.progressBar {
-  // background-color: light-dark(
-  //   var(--mantine-color-gray-6),
-  //   var(--mantine-color-gray-5)
-  // );
-  height: 2px;
-  width: 100%;
-  transform-origin: 0;
-}
-
-.progressBarBackground {
-  // background-color: light-dark(
-  //   var(--mantine-color-gray-4),
-  //   var(--mantine-color-gray-7)
-  // );
-  height: 2px;
-  width: 15%;
-  margin-top: 35px;
 }

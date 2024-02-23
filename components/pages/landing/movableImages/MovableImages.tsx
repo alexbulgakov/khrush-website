@@ -3,8 +3,9 @@
 import { useEffect, useState, useRef } from 'react'
 
 import novosibirsk from '@/public/hero-images/novosibirsk.png'
+import { shouldForwardProp, chakra } from '@chakra-ui/react'
 import mangazeya from '@/public/hero-images/mangazeya.png'
-import { useAnimation, motion } from 'framer-motion'
+import { isValidMotionProp, motion } from 'framer-motion'
 import biysk from '@/public/hero-images/biysk.png'
 import tomsk from '@/public/hero-images/tomsk.png'
 import Image from 'next/image'
@@ -34,9 +35,13 @@ const images = [
   },
 ]
 
+const ChakraBox = chakra(motion.div, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+})
+
 export default function MovableImages() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const progressBarControls = useAnimation()
 
   const inputRef = useRef<HTMLDivElement>(null)
   const glowRef = useRef<HTMLDivElement>(null)
@@ -46,28 +51,8 @@ export default function MovableImages() {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
     }, 15000)
 
-    progressBarControls.start({
-      transition: { ease: 'linear', duration: 15 },
-      scaleX: 1,
-    })
-
     return () => clearInterval(interval)
-  }, [currentImageIndex, progressBarControls])
-
-  useEffect(() => {
-    progressBarControls
-      .start({
-        transition: { duration: 0 },
-        scaleX: 0,
-      })
-      .then(() => {
-        progressBarControls.start({
-          transition: { ease: 'linear', duration: 15 },
-          scaleX: 1,
-        })
-      })
-    return () => progressBarControls.stop()
-  }, [currentImageIndex, progressBarControls])
+  }, [currentImageIndex])
 
   const image = images[currentImageIndex]
 
@@ -121,8 +106,8 @@ export default function MovableImages() {
         onMouseMove={rotateToMouse}
         ref={inputRef}
       >
-        <motion.div
-          transition={{ type: 'tween' }}
+        <ChakraBox
+          transition={{ transition: '0.5', ease: 'easeInOut', duration: '1' }}
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           exit={{ opacity: 0 }}
@@ -138,16 +123,8 @@ export default function MovableImages() {
             quality={100}
             fill
           />
-        </motion.div>
+        </ChakraBox>
         <div className={classes.glow} ref={glowRef} />
-      </div>
-
-      <div className={classes.progressBarBackground}>
-        <motion.div
-          className={classes.progressBar}
-          animate={progressBarControls}
-          initial={{ scaleX: 0 }}
-        />
       </div>
     </div>
   )

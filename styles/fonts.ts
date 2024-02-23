@@ -1,10 +1,9 @@
-import { Nunito, Exo_2 } from 'next/font/google'
+import { Raleway, Exo_2 } from 'next/font/google'
 
-// const nunito = Nunito({
-//   weight: ['400', '700'],
-//   subsets: ['cyrillic'],
-//   display: 'swap',
-// })
+const raleway = Raleway({
+  variable: '--font-raleway',
+  subsets: ['cyrillic'],
+})
 
 const exo = Exo_2({
   variable: '--font-exo',
@@ -12,5 +11,6 @@ const exo = Exo_2({
 })
 
 export const fonts = {
+  raleway,
   exo,
 }

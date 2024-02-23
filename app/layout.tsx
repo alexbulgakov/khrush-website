@@ -10,7 +10,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html className={fonts.exo.variable} lang="ru">
+    <html
+      className={`${fonts.exo.variable} ${fonts.raleway.variable}`}
+      lang="ru"
+    >
       <head></head>
       <body>
         <Providers>
