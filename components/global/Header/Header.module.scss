@@ -1,15 +1,13 @@
 .header {
   position: fixed;
-  // color: light-dark(var(--mantine-color-gray-8), var(--mantine-color-gray-3));
-  // background-color: var(--mantine-color-body);
   width: 100%;
   box-sizing: border-box;
   padding: 10px;
-  box-shadow: var(--mantine-shadow-sm);
+  box-shadow: 0px 0px 10px 0px var(--chakra-colors-chakra-body-text);
   z-index: 100;
 
   .background {
-    background-color: black;
+    background-color: var(--chakra-colors-chakra-body-text);
     opacity: 0.5;
     height: 100%;
     width: 100%;
@@ -32,10 +30,6 @@
       align-items: center;
       gap: 15px;
       text-decoration: none;
-      // color: light-dark(
-      //   var(--mantine-color-gray-7),
-      //   var(--mantine-color-dark-1)
-      // );
       left: 0;
 
       &Text {
@@ -70,6 +64,11 @@
       justify-content: center;
       gap: 8px;
       cursor: pointer;
+      transition: color 0.5s ease;
+
+      :hover {
+        color: var(--chakra-colors-gray-400);
+      }
 
       .label {
         position: relative;
@@ -94,10 +93,6 @@
           content: '';
           height: 2px;
           width: 100%;
-          // background-color: light-dark(
-          //   var(--mantine-color-gray-8),
-          //   var(--mantine-color-gray-3)
-          // );
           position: relative;
           display: block;
           transition: all 1s cubic-bezier(0.76, 0, 0.24, 1);

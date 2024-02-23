@@ -1,20 +1,13 @@
-import { Nunito, Exo_2 } from 'next/font/google'
-import { createTheme } from '@mantine/core'
+/* theme.ts */
+import { extendTheme } from '@chakra-ui/react'
 
-const nunito = Nunito({
-  weight: ['400', '700'],
-  subsets: ['cyrillic'],
-  display: 'swap',
-})
-
-const exo = Exo_2({
-  weight: ['400', '700'],
-  subsets: ['cyrillic'],
-  display: 'swap',
-})
-
-export const theme = createTheme({
-  // headings: { fontFamily: `${nunito.style.fontFamily}, sans-serif` },
-  headings: { fontFamily: `${exo.style.fontFamily}, sans-serif` },
-  fontFamily: `${exo.style.fontFamily}, sans-serif`,
+export const theme = extendTheme({
+  config: {
+    initialColorMode: 'system',
+    useSystemColorMode: true,
+  },
+  fonts: {
+    heading: 'var(--font-exo)',
+    body: 'var(--font-exo)',
+  },
 })

@@ -1,6 +1,12 @@
 'use client'
 import { useState } from 'react'
 
+import stainedGlassWindows from '@/public/nav-images/stained-glass-windows.jpg'
+import architecture from '@/public/nav-images/architecture.jpg'
+import monuments from '@/public/nav-images/monuments.jpg'
+import mosaics from '@/public/nav-images/mosaics.jpg'
+import signage from '@/public/nav-images/signage.jpg'
+import reliefs from '@/public/nav-images/reliefs.jpg'
 import { motion } from 'framer-motion'
 
 import NavImage from './NavImage/NavImage'
@@ -13,33 +19,33 @@ import styles from './Navigation.module.scss'
 const links = [
   {
     href: '/heritage/mosaics',
-    src: 'mosaics.jpg',
     title: 'Мозаики',
+    src: mosaics,
   },
   {
     href: '/heritage/architecture',
-    src: 'architecture.jpg',
     title: 'Архитектура',
+    src: architecture,
   },
   {
     href: '/heritage/monuments',
-    src: 'monuments.jpg',
     title: 'Памятники',
+    src: monuments,
   },
   {
     href: '/heritage/signage',
-    src: 'signage.jpg',
     title: 'Вывески',
+    src: signage,
   },
   {
     href: '/heritage/stained-glass-windows',
-    src: 'stained-glass-windows.jpg',
+    src: stainedGlassWindows,
     title: 'Витражи',
   },
   {
     href: '/heritage/reliefs',
-    src: 'reliefs.jpg',
     title: 'Рельефы',
+    src: reliefs,
   },
 ]
 

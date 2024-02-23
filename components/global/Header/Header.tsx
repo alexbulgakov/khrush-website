@@ -6,6 +6,7 @@ import ColorSchemeToggle from '@/components/shared/ColorSchemeToggle/ColorScheme
 import { AnimatePresence, motion } from 'framer-motion'
 import logoLight from '@/public/logo/logo_light.png'
 import logoDark from '@/public/logo/logo_dark.png'
+import { useColorMode } from '@chakra-ui/react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -16,16 +17,17 @@ import styles from './Header.module.scss'
 
 export default function Header() {
   const [isActive, setIsActive] = useState(false)
+  const { colorMode } = useColorMode()
 
   return (
     <div className={styles.header}>
       <div className={styles.bar}>
         <Link className={styles.logo} href="/">
-          {/* {colorScheme === 'light' ? (
-            <Image src={logoDark} height={42} width={45} alt="logo" />
-          ) : (
+          {colorMode === 'light' ? (
             <Image src={logoLight} height={42} width={45} alt="logo" />
-          )} */}
+          ) : (
+            <Image src={logoDark} height={42} width={45} alt="logo" />
+          )}
           <div className={styles.logoText}>Храш</div>
         </Link>
         <div className={styles.menu}>

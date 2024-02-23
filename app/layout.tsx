@@ -1,6 +1,8 @@
+import { ColorModeScript } from '@chakra-ui/react'
+import { fonts } from '@/styles/fonts'
 import { theme } from '@/styles/theme'
 
-import '@mantine/core/styles.css'
+import { Providers } from './providers'
 
 export default function RootLayout({
   children,
@@ -8,9 +10,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ru">
+    <html className={fonts.exo.variable} lang="ru">
       <head></head>
-      <body>{children}</body>
+      <body>
+        <Providers>
+          {children}
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+        </Providers>
+      </body>
     </html>
   )
 }

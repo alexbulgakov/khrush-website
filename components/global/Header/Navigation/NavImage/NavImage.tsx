@@ -1,5 +1,5 @@
+import Image, { StaticImageData } from 'next/image'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 
 import { opacity } from '../../animation'
 
@@ -10,8 +10,8 @@ export default function NavImage({
   src,
   alt,
 }: {
+  src: StaticImageData
   isActive: boolean
-  src: string
   alt: string
 }) {
   return (
@@ -21,12 +21,7 @@ export default function NavImage({
       variants={opacity}
       initial="initial"
     >
-      <Image
-        sizes="(min-width: 808px) 50vw, 100vw"
-        src={`/nav-images/${src}`}
-        alt={alt}
-        fill
-      />
+      <Image sizes="(min-width: 808px) 50vw, 100vw" src={src} alt={alt} fill />
     </motion.div>
   )
 }

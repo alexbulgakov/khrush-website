@@ -1,37 +1,16 @@
-'use client'
-import {
-  useComputedColorScheme,
-  useMantineColorScheme,
-  ActionIcon,
-  Group,
-} from '@mantine/core'
 import { IconMoon, IconSun } from '@tabler/icons-react'
-import cx from 'clsx'
-
-import styles from './ColorSchemeToggle.module.scss'
+import { useColorMode } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react'
 
 export default function ColorSchemeToggle() {
-  const { setColorScheme, colorScheme } = useMantineColorScheme()
-  const computedColorScheme = useComputedColorScheme('light', {
-    getInitialValueInEffect: true,
-  })
-
+  const { toggleColorMode, colorMode } = useColorMode()
   return (
-    <Group justify="center">
-      <ActionIcon
-        onClick={() =>
-          setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')
-        }
-        aria-label="Toggle color scheme"
-        variant="default"
-        size="xl"
-      >
-        {colorScheme === 'light' ? (
-          <IconMoon className={cx(styles.icon, styles.dark)} stroke={1.5} />
-        ) : (
-          <IconSun className={cx(styles.icon, styles.light)} stroke={1.5} />
-        )}
-      </ActionIcon>
-    </Group>
+    <Button onClick={toggleColorMode} color="inherit" sx={{ ml: 1 }}>
+      {colorMode === 'dark' ? (
+        <IconSun stroke={1.5} />
+      ) : (
+        <IconMoon stroke={1.5} />
+      )}
+    </Button>
   )
 }

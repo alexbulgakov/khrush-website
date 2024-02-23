@@ -10,14 +10,11 @@ const config = {
     /// Set this to false if you want production builds to abort if there's lint errors
     ignoreDuringBuilds: process.env.VERCEL_ENV === 'production',
   },
-  images: {
-    remotePatterns: [
-      { hostname: 'cdn.sanity.io' },
-      { hostname: 'source.unsplash.com' },
-    ],
-  },
   sassOptions: {
-    prependData: `@import "./_mantine.scss";`,
+    prependData: `@import "./styles/global.scss";`,
+  },
+  images: {
+    remotePatterns: [{ hostname: 'cdn.sanity.io' }],
   },
   logging: {
     fetches: {

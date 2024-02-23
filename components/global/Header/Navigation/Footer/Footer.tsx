@@ -1,3 +1,7 @@
+import { IconBrandTelegram } from '@tabler/icons-react'
+import { useColorModeValue } from '@chakra-ui/react'
+import { Link } from '@chakra-ui/next-js'
+import { Icon } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
 import { translate } from '../../animation'
@@ -5,6 +9,8 @@ import { translate } from '../../animation'
 import styles from './Footer.module.scss'
 
 export default function Footer() {
+  const iconColor = useColorModeValue('black', 'white')
+
   return (
     <div className={styles.footer}>
       <ul>
@@ -26,7 +32,13 @@ export default function Footer() {
           animate="enter"
           exit="exit"
         >
-          <span>Typography:</span> Google Fonts
+          <Link
+            href="https://t.me/your_khrush"
+            _hover={{ color: 'gray.400' }}
+            color={iconColor}
+          >
+            <Icon as={IconBrandTelegram} boxSize={10} />
+          </Link>
         </motion.li>
       </ul>
       <ul>
@@ -37,7 +49,7 @@ export default function Footer() {
           animate="enter"
           exit="exit"
         >
-          <span>Images:</span> Freepik, Envato
+          <span>Сделал:</span> Лёша Булгаков
         </motion.li>
       </ul>
       <ul>
@@ -48,7 +60,7 @@ export default function Footer() {
           animate="enter"
           exit="exit"
         >
-          Privacy Policy
+          Контакты
         </motion.li>
         <motion.li
           variants={translate}
@@ -57,7 +69,7 @@ export default function Footer() {
           animate="enter"
           exit="exit"
         >
-          Terms & Conditions
+          Информация
         </motion.li>
       </ul>
     </div>

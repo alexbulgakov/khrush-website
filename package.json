@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/next-js": "^2.2.0",
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
     "@plaiceholder/next": "^3.0.0",
     "@portabletext/react": "^3.0.11",
     "@sanity/client": "^6.13.0",
@@ -17,7 +21,6 @@
     "@sanity/react-loader": "^1.8.3",
     "@sanity/vision": "^3.28.0",
     "@tabler/icons-react": "^2.47.0",
-    "clsx": "^2.1.0",
     "date-fns": "^3.3.1",
     "framer-motion": "^11.0.5",
     "next": "14.1.0",
