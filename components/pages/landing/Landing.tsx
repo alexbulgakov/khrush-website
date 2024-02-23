@@ -1,5 +1,9 @@
-import Hero from './hero/Hero'
+import Hero from './Hero/Hero'
 
 export default function Landing() {
-  return <Hero />
+  return (
+    <>
+      <Hero />
+    </>
+  )
 }

@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { SanityDocument } from "next-sanity";
+import { SanityDocument } from 'next-sanity'
+import Link from 'next/link'
 
 export default function Articles({ posts }: { posts: SanityDocument[] }) {
   return (
@@ -10,5 +10,5 @@ export default function Articles({ posts }: { posts: SanityDocument[] }) {
         </li>
       ))}
     </ul>
-  );
+  )
 }

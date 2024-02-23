@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import Header from '@/components/global/Header/Header'
+import dynamic from 'next/dynamic'
 
 import 'normalize.css/normalize.css'
 import '@/styles/global.scss'
@@ -22,6 +22,10 @@ export const metadata: Metadata = {
   description: 'Нескучная история',
   title: 'Храш',
 }
+
+const Header = dynamic(() => import('@/components/global/Header/Header'), {
+  ssr: false,
+})
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

@@ -27,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "components/pages/landing/movableImages/MovableImages.tsx"
+    "components/pages/landing/MovableImages/MovableImages.tsx"
   ],
   "exclude": ["node_modules"]
 }

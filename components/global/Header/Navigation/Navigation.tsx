@@ -67,6 +67,7 @@ export default function Navigation() {
           <Footer />
         </div>
         <NavImage
+          alt={links[selectedLink.index].title}
           src={links[selectedLink.index].src}
           isActive={selectedLink.isActive}
         />

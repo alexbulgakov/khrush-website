@@ -2,11 +2,10 @@
 
 import { useState } from 'react'
 
+import ColorSchemeToggle from '@/components/shared/ColorSchemeToggle/ColorSchemeToggle'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useMantineColorScheme } from '@mantine/core'
 import logoLight from '@/public/logo/logo_light.png'
 import logoDark from '@/public/logo/logo_dark.png'
-import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -15,24 +14,18 @@ import Navigation from './Navigation/Navigation'
 
 import styles from './Header.module.scss'
 
-const ColorSchemeToggle = dynamic(
-  () => import('@/components/shared/ColorSchemeToggle/ColorSchemeToggle'),
-  { ssr: false },
-) //сделать то же самое для шапки
-
 export default function Header() {
   const [isActive, setIsActive] = useState(false)
-  const { colorScheme } = useMantineColorScheme()
 
   return (
     <div className={styles.header}>
       <div className={styles.bar}>
         <Link className={styles.logo} href="/">
-          {colorScheme === 'light' ? (
+          {/* {colorScheme === 'light' ? (
             <Image src={logoDark} height={42} width={45} alt="logo" />
           ) : (
             <Image src={logoLight} height={42} width={45} alt="logo" />
-          )}
+          )} */}
           <div className={styles.logoText}>Храш</div>
         </Link>
         <div className={styles.menu}>

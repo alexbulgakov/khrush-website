@@ -4,9 +4,9 @@ import { useEffect, useState, useRef } from 'react'
 
 import novosibirsk from '@/public/hero-images/novosibirsk.png'
 import mangazeya from '@/public/hero-images/mangazeya.png'
+import { useAnimation, motion } from 'framer-motion'
 import biysk from '@/public/hero-images/biysk.png'
 import tomsk from '@/public/hero-images/tomsk.png'
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 import classes from './MovableImages.module.scss'
@@ -36,6 +36,7 @@ const images = [
 
 export default function MovableImages() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const progressBarControls = useAnimation()
 
   const inputRef = useRef<HTMLDivElement>(null)
   const glowRef = useRef<HTMLDivElement>(null)
@@ -43,10 +44,30 @@ export default function MovableImages() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
-    }, 10000)
+    }, 15000)
+
+    progressBarControls.start({
+      transition: { ease: 'linear', duration: 15 },
+      scaleX: 1,
+    })
 
     return () => clearInterval(interval)
-  }, [])
+  }, [currentImageIndex, progressBarControls])
+
+  useEffect(() => {
+    progressBarControls
+      .start({
+        transition: { duration: 0 },
+        scaleX: 0,
+      })
+      .then(() => {
+        progressBarControls.start({
+          transition: { ease: 'linear', duration: 15 },
+          scaleX: 1,
+        })
+      })
+    return () => progressBarControls.stop()
+  }, [currentImageIndex, progressBarControls])
 
   const image = images[currentImageIndex]
 
@@ -108,15 +129,25 @@ export default function MovableImages() {
           key={image.id}
         >
           <Image
-            style={{ objectFit: 'cover' }}
+            style={{
+              objectFit: 'cover',
+            }}
+            sizes="(min-width: 808px) 50vw, 100vw"
             src={image.src}
             alt={image.alt}
             quality={100}
-            sizes="100vw"
             fill
           />
         </motion.div>
         <div className={classes.glow} ref={glowRef} />
+      </div>
+
+      <div className={classes.progressBarBackground}>
+        <motion.div
+          className={classes.progressBar}
+          animate={progressBarControls}
+          initial={{ scaleX: 0 }}
+        />
       </div>
     </div>
   )

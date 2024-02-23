@@ -1,4 +1,3 @@
-import { ColorSchemeScript, MantineProvider } from '@mantine/core'
 import { theme } from '@/styles/theme'
 
 import '@mantine/core/styles.css'
@@ -10,12 +9,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <head>
-        <ColorSchemeScript />
-      </head>
-      <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
-      </body>
+      <head></head>
+      <body>{children}</body>
     </html>
   )
 }
