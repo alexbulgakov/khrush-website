@@ -21,7 +21,9 @@ export default function Footer() {
           animate="enter"
           exit="exit"
         >
-          <span>Made by:</span>Studio Lumio
+          <Link _hover={{ color: 'gray.400' }} fontSize="3xl" href="/" mr={10}>
+            О НАС
+          </Link>
         </motion.li>
       </ul>
       <ul>
@@ -37,39 +39,8 @@ export default function Footer() {
             _hover={{ color: 'gray.400' }}
             color={iconColor}
           >
-            <Icon as={IconBrandTelegram} boxSize={10} />
+            <Icon as={IconBrandTelegram} boxSize={8} />
           </Link>
-        </motion.li>
-      </ul>
-      <ul>
-        <motion.li
-          variants={translate}
-          custom={[0.3, 0]}
-          initial="initial"
-          animate="enter"
-          exit="exit"
-        >
-          <span>Сделал:</span> Лёша Булгаков
-        </motion.li>
-      </ul>
-      <ul>
-        <motion.li
-          variants={translate}
-          custom={[0.3, 0]}
-          initial="initial"
-          animate="enter"
-          exit="exit"
-        >
-          Контакты
-        </motion.li>
-        <motion.li
-          variants={translate}
-          custom={[0.3, 0]}
-          initial="initial"
-          animate="enter"
-          exit="exit"
-        >
-          Информация
         </motion.li>
       </ul>
     </div>

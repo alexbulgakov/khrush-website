@@ -7,12 +7,12 @@ import MovableImages from '../MovableImages/MovableImages'
 
 export default function Hero() {
   const gradient = useColorModeValue(
-    'linear(to-l, #C33764, #1D2671)',
-    'linear(to-l, #00416A, #799F0C, #FFE000)',
+    'linear(to-l, #0721e1,#373B44)',
+    'linear(to-l, #0721e1,#ffffff)',
   )
 
   return (
-    <Container centerContent maxW="xl" pt="180">
+    <Container centerContent h="100vh" pt="180">
       <Flex justify="space-between" align="center">
         <Box mr="100">
           <Heading
@@ -22,9 +22,10 @@ export default function Hero() {
             size="4xl"
             as="h1"
           >
-            НЕСКУЧНАЯ ИСТОРИЯ
+            Нескучная история
           </Heading>
         </Box>
+
         <MovableImages />
       </Flex>
     </Container>

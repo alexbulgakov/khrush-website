@@ -97,7 +97,7 @@ export default function MovableImages() {
       inputRef.current.style.background = ''
     }
   }
-
+  //вставить сюда орнамент
   return (
     <div className={classes.imageContainer}>
       <div
@@ -111,7 +111,9 @@ export default function MovableImages() {
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           exit={{ opacity: 0 }}
+          position="relative"
           key={image.id}
+          h="100%"
         >
           <Image
             style={{
@@ -120,6 +122,7 @@ export default function MovableImages() {
             sizes="(min-width: 808px) 50vw, 100vw"
             src={image.src}
             alt={image.alt}
+            priority={true}
             quality={100}
             fill
           />

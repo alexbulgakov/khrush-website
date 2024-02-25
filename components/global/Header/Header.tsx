@@ -1,4 +1,4 @@
-'use client'
+'use client' //сделать разные бургеры для темной и светлой
 
 import { useState } from 'react'
 
@@ -17,6 +17,7 @@ import styles from './Header.module.scss'
 
 export default function Header() {
   const [isActive, setIsActive] = useState(false)
+
   const { colorMode } = useColorMode()
 
   return (
@@ -38,8 +39,8 @@ export default function Header() {
             className={styles.el}
           >
             <div
-              className={`${styles.burger} ${isActive ? styles.burgerActive : ''}`}
-            ></div>
+              className={`${styles.burger}  ${isActive ? styles.burgerActive : ''}`}
+            />
             <div className={styles.label}>
               <motion.p
                 animate={!isActive ? 'open' : 'closed'}
