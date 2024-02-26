@@ -1,60 +1,24 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
+import { useRef } from 'react'
 
-import novosibirsk from '@/public/hero-images/novosibirsk.png'
 import { shouldForwardProp, chakra } from '@chakra-ui/react'
-import mangazeya from '@/public/hero-images/mangazeya.png'
 import { isValidMotionProp, motion } from 'framer-motion'
-import biysk from '@/public/hero-images/biysk.png'
-import tomsk from '@/public/hero-images/tomsk.png'
 import Image from 'next/image'
 
 import classes from './MovableImages.module.scss'
-
-const images = [
-  {
-    alt: 'Новосибирск',
-    src: novosibirsk,
-    id: 0,
-  },
-  {
-    alt: 'Бийск',
-    src: biysk,
-    id: 1,
-  },
-  {
-    alt: 'Мангазея',
-    src: mangazeya,
-    id: 2,
-  },
-  {
-    alt: 'Томск',
-    src: tomsk,
-    id: 3,
-  },
-]
 
 const ChakraBox = chakra(motion.div, {
   shouldForwardProp: (prop) =>
     isValidMotionProp(prop) || shouldForwardProp(prop),
 })
 
-export default function MovableImages() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+export default function MovableImages(image) {
+  image = image.image
+  // const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const inputRef = useRef<HTMLDivElement>(null)
   const glowRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
-    }, 15000)
-
-    return () => clearInterval(interval)
-  }, [currentImageIndex])
-
-  const image = images[currentImageIndex]
 
   const rotateToMouse = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!inputRef.current || !glowRef.current) return
@@ -97,7 +61,7 @@ export default function MovableImages() {
       inputRef.current.style.background = ''
     }
   }
-  //вставить сюда орнамент
+
   return (
     <div className={classes.imageContainer}>
       <div

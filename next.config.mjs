@@ -2,14 +2,14 @@ import withPlaiceholder from '@plaiceholder/next'
 
 /** @type {import('next').NextConfig} */
 const config = {
-  webpack(config, { isServer }) {
-    config.module.rules.push({
-      use: ['@svgr/webpack'],
-      test: /\.svg$/,
-    })
+  // webpack(config, { isServer }) {
+  //   config.module.rules.push({
+  //     use: ['@svgr/webpack'],
+  //     test: /\.svg$/,
+  //   })
 
-    return config
-  },
+  //   return config
+  // },
   typescript: {
     ignoreBuildErrors: process.env.VERCEL_ENV === 'production',
   },

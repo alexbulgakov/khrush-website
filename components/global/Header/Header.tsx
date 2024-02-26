@@ -1,4 +1,4 @@
-'use client' //сделать разные бургеры для темной и светлой
+'use client'
 
 import { useState } from 'react'
 
@@ -17,11 +17,32 @@ import styles from './Header.module.scss'
 
 export default function Header() {
   const [isActive, setIsActive] = useState(false)
+  const [isTransparent, setIsTransparent] = useState(true)
 
   const { colorMode } = useColorMode()
 
+  function handleClick(
+    isActive: boolean,
+    setIsActive: (value: boolean) => void,
+    setIsTransparent: (value: boolean) => void,
+  ) {
+    if (isActive) {
+      setTimeout(() => {
+        setIsTransparent(true)
+      }, 900)
+      setIsActive(!isActive)
+    } else {
+      setTimeout(() => {
+        setIsActive(!isActive)
+      }, 10)
+      setIsTransparent(false)
+    }
+  }
+
   return (
-    <div className={styles.header}>
+    <div
+      className={`${styles.header}  ${isTransparent ? styles.headerTransparent : ''}`}
+    >
       <div className={styles.bar}>
         <Link className={styles.logo} href="/">
           {colorMode === 'light' ? (
@@ -34,7 +55,7 @@ export default function Header() {
         <div className={styles.menu}>
           <div
             onClick={() => {
-              setIsActive(!isActive)
+              handleClick(isActive, setIsActive, setIsTransparent)
             }}
             className={styles.el}
           >

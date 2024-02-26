@@ -3,9 +3,14 @@
   width: 100%;
   box-sizing: border-box;
   padding: 10px;
-  box-shadow: 0px 0px 10px 0px var(--chakra-colors-chakra-body-text);
   background-color: var(--chakra-colors-chakra-body-bg);
   z-index: 10;
+  transition: background-color 0.3s ease;
+
+  &Transparent {
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+  }
 
   .background {
     background-color: var(--chakra-colors-chakra-body-text);
@@ -20,7 +25,6 @@
   .bar {
     display: flex;
     justify-content: space-between;
-    // align-items: center;
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 300;
