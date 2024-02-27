@@ -1,3 +1,5 @@
+'use client'
+
 import { IconBrandTelegram } from '@tabler/icons-react'
 import { useColorModeValue } from '@chakra-ui/react'
 import { Link } from '@chakra-ui/next-js'

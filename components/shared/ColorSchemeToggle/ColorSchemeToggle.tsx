@@ -1,3 +1,5 @@
+'use client'
+
 import { IconMoon, IconSun } from '@tabler/icons-react'
 import { useColorMode } from '@chakra-ui/react'
 import { Button } from '@chakra-ui/react'

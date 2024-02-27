@@ -14,12 +14,11 @@ export default function RootLayout({
       className={`${fonts.exo.variable} ${fonts.raleway.variable}`}
       lang="ru"
     >
-      <head></head>
+      <head>
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      </head>
       <body>
-        <Providers>
-          {children}
-          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   )
