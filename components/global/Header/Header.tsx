@@ -10,38 +10,22 @@ import { useColorMode } from '@chakra-ui/react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { background, opacity } from './animation'
+import { transparency, background, opacity } from './animation'
 import Navigation from './Navigation/Navigation'
 
 import styles from './Header.module.scss'
 
 export default function Header() {
   const [isActive, setIsActive] = useState(false)
-  const [isTransparent, setIsTransparent] = useState(true)
 
   const { colorMode } = useColorMode()
 
-  function handleClick(
-    isActive: boolean,
-    setIsActive: (value: boolean) => void,
-    setIsTransparent: (value: boolean) => void,
-  ) {
-    if (isActive) {
-      setTimeout(() => {
-        setIsTransparent(true)
-      }, 900)
-      setIsActive(!isActive)
-    } else {
-      setTimeout(() => {
-        setIsActive(!isActive)
-      }, 10)
-      setIsTransparent(false)
-    }
-  }
-
   return (
-    <div
-      className={`${styles.header}  ${isTransparent ? styles.headerTransparent : ''}`}
+    <motion.div
+      animate={isActive ? 'open' : 'closed'}
+      className={styles.header}
+      variants={transparency}
+      initial="initial"
     >
       <div className={styles.bar}>
         <Link className={styles.logo} href="/">
@@ -55,7 +39,7 @@ export default function Header() {
         <div className={styles.menu}>
           <div
             onClick={() => {
-              handleClick(isActive, setIsActive, setIsTransparent)
+              setIsActive(!isActive)
             }}
             className={styles.el}
           >
@@ -100,10 +84,10 @@ export default function Header() {
         className={styles.background}
         variants={background}
         initial="initial"
-      ></motion.div>
+      />
       <AnimatePresence mode="wait">
         {isActive && <Navigation />}
       </AnimatePresence>
-    </div>
+    </motion.div>
   )
 }

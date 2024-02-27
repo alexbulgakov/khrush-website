@@ -1,5 +1,19 @@
 const transition = { ease: [0.76, 0, 0.24, 1], duration: 1 }
 
+export const transparency = {
+  open: {
+    backgroundColor: 'var(--chakra-colors-chakra-body-bg)',
+    transition: { duration: 0.35 },
+  },
+  closed: {
+    transition: { duration: 0.35, delay: 0.9 },
+    backgroundColor: 'transparent',
+  },
+  initial: {
+    backgroundColor: 'transparent',
+  },
+}
+
 export const opacity = {
   closed: {
     transition: { duration: 0.35 },
