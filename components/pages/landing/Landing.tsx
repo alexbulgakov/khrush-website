@@ -1,6 +1,6 @@
 'use client'
 
-import blurLight from '@/public/hero-images/becrux.png'
+import blurLight from '@/public/hero-images/shaula.png'
 import blurDark from '@/public/hero-images/vega.png'
 import { useColorMode } from '@chakra-ui/react'
 import { Box } from '@chakra-ui/react'

@@ -1,13 +1,15 @@
 .footer {
   display: flex;
-  align-items: flex-end;
+  justify-content: flex-start;
+  align-items: center;
   flex-wrap: wrap;
   font-size: 12px;
   text-transform: uppercase;
   margin-top: 40px;
+  gap: 40px;
 
   ul {
-    width: 50%;
+    width: fit-content;
     margin-top: 10px;
     overflow: hidden;
     list-style-type: none;
@@ -17,10 +19,16 @@
 
 @media only screen and (min-width: 1000px) {
   .footer {
-    justify-content: flex-start;
+    // justify-content: flex-start;
+  }
+}
 
-    ul {
-      width: auto;
-    }
+.colorScheme {
+  display: none;
+}
+
+@media only screen and (max-width: 655px) {
+  .colorScheme {
+    display: block;
   }
 }

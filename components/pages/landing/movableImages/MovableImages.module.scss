@@ -38,3 +38,45 @@
     background-image: radial-gradient(circle at 50% -20%, #ffffff22, #0000000f);
   }
 }
+
+@media only screen and (max-width: 1280px) {
+  .imageAnimatedWrapper {
+    width: 600px;
+    height: 600px;
+  }
+}
+
+@media only screen and (max-width: 1045px) {
+  .imageAnimatedWrapper {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+@media only screen and (max-width: 517px) {
+  .imageAnimatedWrapper {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+@media only screen and (max-width: 459px) {
+  .imageAnimatedWrapper {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media only screen and (max-width: 408px) {
+  .imageAnimatedWrapper {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media only screen and (max-width: 361px) {
+  .imageAnimatedWrapper {
+    width: 300px;
+    height: 300px;
+  }
+}

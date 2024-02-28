@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
-import { Container, Heading, VStack, Flex, Box } from '@chakra-ui/react'
+import { Container, VStack, Flex, Text, Box } from '@chakra-ui/react'
 import novosibirsk from '@/public/hero-images/novosibirsk.png'
 import { shouldForwardProp, chakra } from '@chakra-ui/react'
 import mangazeya from '@/public/hero-images/mangazeya.png'
@@ -60,7 +60,7 @@ const ChakraBox = chakra(motion.div, {
 
 export default function Hero() {
   const gradient = useColorModeValue(
-    'linear(to-l, #2c3e50, #fd746c)',
+    'linear(to-l, #000428, #004e92)',
     'linear(to-l, #a1ffce, #faffd1)',
   )
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -78,23 +78,38 @@ export default function Hero() {
   const line = lines[currentLineIndex]
 
   return (
-    <Container pos="relative" centerContent h="100vh" pt="180">
-      <Flex justify="space-between" align="center">
-        <VStack spacing="0" mr="50">
-          <Box w="500px" h="100px">
-            <Heading
+    <Container
+      pt={{ base: '120px', md: '170px' }}
+      pos="relative"
+      centerContent
+      h="100vh"
+    >
+      <Flex direction={{ base: 'column-reverse', lg: 'row' }} align="center">
+        <VStack
+          mr={{ base: '0px', lg: '20px', xl: '50px' }}
+          mt={{ base: '20px', lg: '0px' }}
+          spacing="0"
+        >
+          <Box
+            w={{ base: '280px', sm: '350px', xl: '500px' }}
+            h={{ base: '60px', xl: '90px' }}
+          >
+            <Text
+              fontSize={{ base: '40px', sm: '50px', xl: '66px' }}
+              fontFamily={'var(--font-raleway)'}
               fontWeight="extrabold"
               bgGradient={gradient}
-              height="90px"
+              // height="90px"
               bgClip="text"
-              size="4xl"
-              as="h1"
               m="0"
             >
-              Исследуйте
-            </Heading>
+              ИССЛЕДУЙТЕ
+            </Text>
           </Box>
-          <Box w="500px" h="200px">
+          <Box
+            w={{ base: '280px', sm: '350px', xl: '500px' }}
+            h={{ lg: '100px', xl: '150px' }}
+          >
             <ChakraBox
               transition={{ duration: '1' }}
               variants={textVariants}
@@ -103,9 +118,15 @@ export default function Hero() {
               key={line.id}
               exit="hidden"
             >
-              <Heading size="2xl" as="h2">
+              <Text
+                fontSize={{ base: '18px', sm: '30px', xl: '45px' }}
+                align={{ base: 'center', lg: 'left' }}
+                fontFamily={'var(--font-raleway)'}
+                fontWeight="bold"
+                lineHeight="1"
+              >
                 {line.text}
-              </Heading>
+              </Text>
             </ChakraBox>
           </Box>
         </VStack>

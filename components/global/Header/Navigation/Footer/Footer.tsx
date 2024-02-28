@@ -1,5 +1,6 @@
 'use client'
 
+import ColorSchemeToggle from '@/components/shared/ColorSchemeToggle/ColorSchemeToggle'
 import { IconBrandTelegram } from '@tabler/icons-react'
 import { useColorModeValue } from '@chakra-ui/react'
 import { Link } from '@chakra-ui/next-js'
@@ -23,7 +24,7 @@ export default function Footer() {
           animate="enter"
           exit="exit"
         >
-          <Link _hover={{ color: 'gray.400' }} fontSize="3xl" href="/" mr={10}>
+          <Link _hover={{ color: 'gray.400' }} fontSize="3xl" href="/">
             О НАС
           </Link>
         </motion.li>
@@ -43,6 +44,17 @@ export default function Footer() {
           >
             <Icon as={IconBrandTelegram} boxSize={8} />
           </Link>
+        </motion.li>
+      </ul>
+      <ul className={styles.colorScheme}>
+        <motion.li
+          variants={translate}
+          custom={[0.3, 0]}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+        >
+          <ColorSchemeToggle />
         </motion.li>
       </ul>
     </div>

@@ -67,12 +67,12 @@ export default function Header() {
             variants={opacity}
           >
             <div className={styles.el}>
-              <p>О нас</p>
+              <p className={styles.aboutUs}>О нас</p>
             </div>
           </motion.div>
           <motion.div
             animate={!isActive ? 'open' : 'closed'}
-            className={styles.about}
+            className={styles.colorScheme}
             variants={opacity}
           >
             <ColorSchemeToggle />
