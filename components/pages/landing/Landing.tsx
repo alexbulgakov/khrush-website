@@ -6,6 +6,7 @@ import { useColorMode } from '@chakra-ui/react'
 import { Box } from '@chakra-ui/react'
 import Image from 'next/image'
 
+import AboutUs from './AboutUs/AboutUs'
 import Hero from './Hero/Hero'
 
 // import classes from './Landing.module.scss'
@@ -41,6 +42,7 @@ export default function Landing() {
       )}
 
       <Hero />
+      <AboutUs />
     </Box>
   )
 }

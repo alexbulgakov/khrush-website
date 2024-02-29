@@ -79,12 +79,17 @@ export default function Hero() {
 
   return (
     <Container
+      justifyContent={{ base: 'center', sm: 'start' }}
       pt={{ base: '120px', md: '170px' }}
       pos="relative"
       centerContent
       h="100vh"
     >
-      <Flex direction={{ base: 'column-reverse', lg: 'row' }} align="center">
+      <Flex
+        direction={{ base: 'column-reverse', lg: 'row' }}
+        gap={{ base: '30px', sm: '0px' }}
+        align="center"
+      >
         <VStack
           mr={{ base: '0px', lg: '20px', xl: '50px' }}
           mt={{ base: '20px', lg: '0px' }}
@@ -99,7 +104,6 @@ export default function Hero() {
               fontFamily={'var(--font-raleway)'}
               fontWeight="extrabold"
               bgGradient={gradient}
-              // height="90px"
               bgClip="text"
               m="0"
             >
