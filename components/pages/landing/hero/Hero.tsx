@@ -7,9 +7,13 @@ import novosibirsk from '@/public/hero-images/novosibirsk.png'
 import { shouldForwardProp, chakra } from '@chakra-ui/react'
 import mangazeya from '@/public/hero-images/mangazeya.png'
 import { isValidMotionProp, motion } from 'framer-motion'
+import blurLight from '@/public/hero-images/shaula.png'
 import { useColorModeValue } from '@chakra-ui/react'
+import blurDark from '@/public/hero-images/vega.png'
 import biysk from '@/public/hero-images/biysk.png'
 import tomsk from '@/public/hero-images/tomsk.png'
+import { useColorMode } from '@chakra-ui/react'
+import Image from 'next/image'
 
 import MovableImages from '../MovableImages/MovableImages'
 
@@ -76,66 +80,93 @@ export default function Hero() {
   }, [currentImageIndex, currentLineIndex])
 
   const line = lines[currentLineIndex]
-
+  const { colorMode } = useColorMode()
   return (
-    <Container
-      justifyContent={{ base: 'center', sm: 'start' }}
-      pt={{ base: '120px', md: '170px' }}
-      pos="relative"
-      centerContent
-      h="100vh"
-    >
-      <Flex
-        direction={{ base: 'column-reverse', lg: 'row' }}
-        gap={{ base: '30px', sm: '0px' }}
-        align="center"
+    <Box overflow="hidden" pos="relative">
+      {colorMode === 'light' ? (
+        <Image
+          style={{
+            objectFit: 'cover',
+          }}
+          src={blurLight}
+          sizes="100vw"
+          quality={100}
+          alt="blur"
+          fill
+        />
+      ) : (
+        <Image
+          style={{
+            objectFit: 'cover',
+
+            opacity: 0.6,
+          }}
+          src={blurDark}
+          sizes="100vw"
+          quality={100}
+          alt="blur"
+          fill
+        />
+      )}
+      <Container
+        justifyContent={{ base: 'center', sm: 'start' }}
+        pt={{ base: '120px', md: '170px' }}
+        pos="relative"
+        centerContent
+        h="100vh"
       >
-        <VStack
-          mr={{ base: '0px', lg: '20px', xl: '50px' }}
-          mt={{ base: '20px', lg: '0px' }}
-          spacing="0"
+        <Flex
+          direction={{ base: 'column-reverse', lg: 'row' }}
+          gap={{ base: '30px', sm: '0px' }}
+          align="center"
         >
-          <Box
-            w={{ base: '280px', sm: '350px', xl: '500px' }}
-            h={{ base: '60px', xl: '90px' }}
+          <VStack
+            mr={{ base: '0px', lg: '20px', xl: '50px' }}
+            mt={{ base: '20px', lg: '0px' }}
+            spacing="0"
           >
-            <Text
-              fontSize={{ base: '40px', sm: '50px', xl: '66px' }}
-              fontFamily={'var(--font-raleway)'}
-              fontWeight="extrabold"
-              bgGradient={gradient}
-              bgClip="text"
-              m="0"
-            >
-              ИССЛЕДУЙТЕ
-            </Text>
-          </Box>
-          <Box
-            w={{ base: '280px', sm: '350px', xl: '500px' }}
-            h={{ lg: '100px', xl: '150px' }}
-          >
-            <ChakraBox
-              transition={{ duration: '1' }}
-              variants={textVariants}
-              animate="visible"
-              initial="hidden"
-              key={line.id}
-              exit="hidden"
+            <Box
+              w={{ base: '280px', sm: '350px', xl: '500px' }}
+              h={{ base: '60px', xl: '90px' }}
             >
               <Text
-                fontSize={{ base: '18px', sm: '30px', xl: '45px' }}
-                align={{ base: 'center', lg: 'left' }}
+                fontSize={{ base: '40px', sm: '50px', xl: '66px' }}
                 fontFamily={'var(--font-raleway)'}
-                fontWeight="bold"
-                lineHeight="1"
+                fontWeight="extrabold"
+                bgGradient={gradient}
+                bgClip="text"
+                m="0"
               >
-                {line.text}
+                ИССЛЕДУЙТЕ
               </Text>
-            </ChakraBox>
-          </Box>
-        </VStack>
-        <MovableImages image={images[currentImageIndex]} />
-      </Flex>
-    </Container>
+            </Box>
+            <Box
+              w={{ base: '280px', sm: '350px', xl: '500px' }}
+              h={{ lg: '100px', xl: '150px' }}
+            >
+              <ChakraBox
+                transition={{ duration: '1' }}
+                variants={textVariants}
+                animate="visible"
+                initial="hidden"
+                key={line.id}
+                exit="hidden"
+              >
+                <Text
+                  fontSize={{ base: '18px', sm: '30px', xl: '45px' }}
+                  align={{ base: 'center', lg: 'left' }}
+                  fontFamily={'var(--font-raleway)'}
+                  fontWeight="bold"
+                  lineHeight="1"
+                >
+                  {line.text}
+                </Text>
+              </ChakraBox>
+            </Box>
+          </VStack>
+          <MovableImages image={images[currentImageIndex]} />
+        </Flex>
+      </Container>
+    </Box>
   )
 }

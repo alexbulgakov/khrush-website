@@ -16,7 +16,7 @@ export default function Landing() {
 
   return (
     <Box overflow="hidden" pos="relative">
-      {colorMode === 'light' ? (
+      {/* {colorMode === 'light' ? (
         <Image
           style={{
             objectFit: 'cover',
@@ -39,7 +39,7 @@ export default function Landing() {
           alt="blur"
           fill
         />
-      )}
+      )} */}
 
       <Hero />
       <AboutUs />

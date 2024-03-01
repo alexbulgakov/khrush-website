@@ -1,38 +1,60 @@
-import { Container, Text, Flex, Box } from '@chakra-ui/react'
-import orn from '@/public/landing-images/orn.svg'
+import { Text, Flex, Box } from '@chakra-ui/react'
+import bg from '@/public/landing-images/bg.jpg'
 import Image from 'next/image'
 
 function AboutUs() {
   return (
     <Box
-      mt={{ base: '20px', md: '50px' }}
+      // mt={{ base: '20px', md: '50px' }}
+      justifyContent="center"
+      alignItems="center"
       // bgImage={orn.src}
       height="100vh"
       pos="relative"
-      // centerContent
+      display="flex"
       width="100vw"
     >
       <Image
         style={{
           objectFit: 'cover',
-          opacity: 0.02,
+          opacity: 0.3,
           zIndex: -1,
         }}
-        alt="Mountains"
+        alt="ornament"
         quality={100}
         sizes="100vw"
-        src={orn}
+        src={bg}
         fill
       />
       <Flex direction="column" justify="center" align="center" gap="40px">
         <Box flex="1">
-          <Text fontSize="60px" align="center" lineHeight="1" maxW="1000px">
+          <Text
+            fontSize={{
+              base: '40px',
+              sm: '50px',
+              md: '55px',
+              lg: '65px',
+              xl: '70px',
+            }}
+            align="center"
+            lineHeight="1"
+            maxW="1200px"
+          >
             Прошлое в деталях:
             <br /> истории, скрытые на виду
           </Text>
         </Box>
-        <Box maxW="1000px" flex="1">
-          <Text fontSize="25px" align="center">
+        <Box maxW="850px" flex="1">
+          <Text
+            fontSize={{
+              base: '15px',
+              sm: '18px',
+              md: '20px',
+              lg: '20px',
+              xl: '25px',
+            }}
+            align="center"
+          >
             Мы - команда ученых-энтузиастов, наша цель - сохранение
             исторического наследия. Мы уверены, что искусство всегда рядом:
             мозаика на соседней панельке, скульптура в парке возле дома - все
