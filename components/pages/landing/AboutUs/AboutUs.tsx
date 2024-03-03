@@ -5,10 +5,8 @@ import Image from 'next/image'
 function AboutUs() {
   return (
     <Box
-      // mt={{ base: '20px', md: '50px' }}
       justifyContent="center"
       alignItems="center"
-      // bgImage={orn.src}
       height="100vh"
       pos="relative"
       display="flex"

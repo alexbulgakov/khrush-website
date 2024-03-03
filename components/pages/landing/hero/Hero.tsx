@@ -6,10 +6,9 @@ import { Container, VStack, Flex, Text, Box } from '@chakra-ui/react'
 import novosibirsk from '@/public/hero-images/novosibirsk.png'
 import { shouldForwardProp, chakra } from '@chakra-ui/react'
 import mangazeya from '@/public/hero-images/mangazeya.png'
+import lineLight from '@/public/hero-images/lineLight.svg'
 import { isValidMotionProp, motion } from 'framer-motion'
-import blurLight from '@/public/hero-images/shaula.png'
-import { useColorModeValue } from '@chakra-ui/react'
-import blurDark from '@/public/hero-images/vega.png'
+import lineDark from '@/public/hero-images/lineDark.svg'
 import biysk from '@/public/hero-images/biysk.png'
 import tomsk from '@/public/hero-images/tomsk.png'
 import { useColorMode } from '@chakra-ui/react'
@@ -63,10 +62,7 @@ const ChakraBox = chakra(motion.div, {
 })
 
 export default function Hero() {
-  const gradient = useColorModeValue(
-    'linear(to-l, #000428, #004e92)',
-    'linear(to-l, #a1ffce, #faffd1)',
-  )
+  const fontColor = '#FF7757'
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [currentLineIndex, setCurrentLineIndex] = useState(0)
 
@@ -87,8 +83,9 @@ export default function Hero() {
         <Image
           style={{
             objectFit: 'cover',
+            opacity: 0.3,
           }}
-          src={blurLight}
+          src={lineDark}
           sizes="100vw"
           quality={100}
           alt="blur"
@@ -99,9 +96,9 @@ export default function Hero() {
           style={{
             objectFit: 'cover',
 
-            opacity: 0.6,
+            opacity: 0.2,
           }}
-          src={blurDark}
+          src={lineLight}
           sizes="100vw"
           quality={100}
           alt="blur"
@@ -133,8 +130,7 @@ export default function Hero() {
                 fontSize={{ base: '40px', sm: '50px', xl: '66px' }}
                 fontFamily={'var(--font-raleway)'}
                 fontWeight="extrabold"
-                bgGradient={gradient}
-                bgClip="text"
+                color={fontColor}
                 m="0"
               >
                 ИССЛЕДУЙТЕ
