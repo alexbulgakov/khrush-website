@@ -27,40 +27,48 @@ function Statistics() {
   return (
     <Box
       justifyContent="center"
+      flexDirection="column"
       display="flex"
-      width="100vw"
+      maxW="1200px"
+      gap="50px"
       mt="50px"
       mb="50px"
+      mx="auto"
+      px="20px"
+      w="100%"
     >
-      <Box
-        flexDirection="column"
-        display="flex"
-        maxW="1200px"
-        gap="50px"
-        px="20px"
-      >
+      <Box display="inline-block" position="relative">
         <Text alignSelf="flex-start" fontSize="60px" lineHeight="1">
           Мы изучили
         </Text>
-        <List
-          gap={{ base: '50px', md: '100px', lg: '150px' }}
-          justifyContent="space-between"
-          alignItems="center"
-          flexWrap="wrap"
-          display="flex"
-        >
-          {data.map((item) => (
-            <ListItem key={item.id}>
-              <Flex direction="column" align="center">
-                <Box fontWeight="bold" fontSize="50px" color="#FF7757">
-                  {item.number}
-                </Box>
-                <Box fontSize="20px">{item.name}</Box>
-              </Flex>
-            </ListItem>
-          ))}
-        </List>
+        <Box
+          position="absolute"
+          bgColor="#FF7757"
+          bottom="-20px"
+          width="200px"
+          height="2px"
+          left="0"
+        />
       </Box>
+      <List
+        gap={{ base: '50px', md: '100px', lg: '150px' }}
+        justifyContent="space-between"
+        alignItems="center"
+        flexWrap="wrap"
+        display="flex"
+        w="100%"
+      >
+        {data.map((item) => (
+          <ListItem key={item.id}>
+            <Flex direction="column" align="center">
+              <Box fontWeight="bold" fontSize="50px" color="#FF7757">
+                {item.number}
+              </Box>
+              <Box fontSize="20px">{item.name}</Box>
+            </Flex>
+          </ListItem>
+        ))}
+      </List>
     </Box>
   )
 }

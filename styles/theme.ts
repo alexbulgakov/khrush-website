@@ -2,6 +2,14 @@
 import { extendTheme } from '@chakra-ui/react'
 
 export const theme = extendTheme({
+  styles: {
+    global: {
+      ':root': {
+        '--brand-color-light': 'FFD2C7',
+        '--brand-color': '#FF7757',
+      },
+    },
+  },
   fonts: {
     heading: 'var(--font-raleway)',
     body: 'var(--font-exo)',
@@ -10,21 +18,4 @@ export const theme = extendTheme({
     initialColorMode: 'system',
     useSystemColorMode: true,
   },
-  //   styles: {
-  //   global: {
-  //     ':root': {
-  //       '--hue': '320',
-  //       '--bg': 'oklch(35% .3 var(--hue))',
-  //       '--text': 'oklch(85% .1 var(--hue))',
-  //       '--shadow': 'oklch(25% .2 var(--hue))',
-  //       '--highlight': 'oklch(98% .05 var(--hue))',
-  //     },
-  //     '.highlighted-text-shadow': {
-  //       textShadow: `
-  //         0 .15ch 15px var(--shadow),
-  //         0 -2px 0 var(--highlight)
-  //       `,
-  //     }
-  //   },
-  // },
 })
