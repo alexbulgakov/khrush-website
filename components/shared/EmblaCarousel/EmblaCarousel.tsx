@@ -120,11 +120,6 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
             <div className="embla__slide" key={photo.id}>
               <div className="embla__parallax">
                 <div className="embla__parallax__layer">
-                  {/* <img
-                    className="embla__slide__img embla__parallax__img"
-                    src={photo.src.src}
-                    alt={photo.alt}
-                  /> */}
                   <Image
                     style={{
                       flex: '0 0 calc(115% + (var(--slide-spacing) * 2))',

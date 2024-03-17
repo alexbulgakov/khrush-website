@@ -13,9 +13,8 @@ function Photos() {
       flexDirection="column"
       display="flex"
       maxW="1200px"
-      gap="50px"
-      mt="50px"
-      mb="50px"
+      gap="70px"
+      my="150px"
       mx="auto"
       px="20px"
       w="100%"
@@ -27,12 +26,19 @@ function Photos() {
         <Box
           position="absolute"
           bgColor="#FF7757"
-          bottom="-20px"
+          bottom="-35px"
           width="200px"
           height="2px"
           right="0"
         />
       </Box>
+      <Text
+        color="var(--chakra-colors-gray-400)"
+        alignSelf="flex-end"
+        fontSize="20px"
+      >
+        Фото интересных мест
+      </Text>
       <EmblaCarousel photos={locationsGalleryPhotos} options={OPTIONS} />
     </Box>
   )
