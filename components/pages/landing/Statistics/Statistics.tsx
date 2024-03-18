@@ -1,38 +1,15 @@
 import { ListItem, Flex, List, Text, Box } from '@chakra-ui/react'
+import { statistics } from '@/content/content'
 
 function Statistics() {
-  const data = [
-    {
-      name: 'мозаик',
-      number: 127,
-      id: 1,
-    },
-    {
-      name: 'вывесок',
-      number: 68,
-      id: 2,
-    },
-    {
-      name: 'рельефов',
-      number: 37,
-      id: 3,
-    },
-    {
-      name: 'витражей',
-      number: 29,
-      id: 4,
-    },
-  ]
-
   return (
     <Box
       justifyContent="center"
       flexDirection="column"
       display="flex"
       maxW="1200px"
-      gap="50px"
-      mt="50px"
-      mb="50px"
+      gap="70px"
+      my="150px"
       mx="auto"
       px="20px"
       w="100%"
@@ -44,12 +21,15 @@ function Statistics() {
         <Box
           position="absolute"
           bgColor="#FF7757"
-          bottom="-20px"
+          bottom="-35px"
           width="200px"
           height="2px"
           left="0"
         />
       </Box>
+      <Text color="var(--chakra-colors-gray-400)" fontSize="20px">
+        Сделали фото и прочитали источники, чтобы рассказать вам
+      </Text>
       <List
         gap={{ base: '50px', md: '100px', lg: '150px' }}
         justifyContent="space-between"
@@ -58,7 +38,7 @@ function Statistics() {
         display="flex"
         w="100%"
       >
-        {data.map((item) => (
+        {statistics.map((item) => (
           <ListItem key={item.id}>
             <Flex direction="column" align="center">
               <Box fontWeight="bold" fontSize="50px" color="#FF7757">

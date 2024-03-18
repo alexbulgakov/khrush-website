@@ -1,6 +1,6 @@
-import { ListItem, Flex, List, Text, Box } from '@chakra-ui/react'
+import { ListItem, List, Text, Box } from '@chakra-ui/react'
+import Card from '@/components/shared/Card/Card'
 import { SanityDocument } from 'next-sanity'
-import Link from 'next/link'
 
 function NewArticles({ posts }: { posts: SanityDocument[] }) {
   return (
@@ -9,38 +9,43 @@ function NewArticles({ posts }: { posts: SanityDocument[] }) {
       flexDirection="column"
       display="flex"
       maxW="1200px"
-      gap="50px"
-      mt="50px"
-      mb="50px"
+      gap="70px"
+      my="150px"
       mx="auto"
       px="20px"
       w="100%"
     >
-      <Box display="inline-block" alignSelf="flex-end" position="relative">
+      <Box display="inline-block" position="relative">
         <Text fontSize="60px" lineHeight="1">
           Новое на сайте
         </Text>
         <Box
           position="absolute"
           bgColor="#FF7757"
-          bottom="-20px"
+          bottom="-35px"
           width="200px"
           height="2px"
-          right="0"
+          left="0"
         />
       </Box>
+      <Text color="var(--chakra-colors-gray-400)" fontSize="20px">
+        Самое новое и интересное
+      </Text>
       <List
-        gap={{ base: '50px', md: '100px', lg: '150px' }}
-        justifyContent="space-between"
+        gap={{ base: '50px', md: '50px', lg: '50px' }}
+        justifyContent="space-around"
         alignItems="center"
         flexWrap="wrap"
         display="flex"
       >
-        {posts.map((item) => (
-          <ListItem key={item._id}>
-            <Link href={`mosaics/${item.slug.current}`}>{item.title}</Link>
-          </ListItem>
-        ))}
+        {posts.map((item) => {
+          console.log(item)
+          return (
+            <ListItem key={item._id}>
+              <Card post={item} />
+            </ListItem>
+          )
+        })}
       </List>
     </Box>
   )
