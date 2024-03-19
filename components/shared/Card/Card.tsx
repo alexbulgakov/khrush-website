@@ -23,15 +23,8 @@ function Card({ post }: { post: SanityDocument }) {
           alt="Обложка"
           fill
         />
-        <Box
-          position="absolute"
-          zIndex={10}
-          bottom="0"
-          right="0"
-          left="0"
-          p={4}
-        >
-          <Heading color="white" size="xl" as="h2">
+        <Box position="absolute" zIndex={2} bottom="0" right="0" left="0" p={4}>
+          <Heading size={{ base: 'md', xl: 'xl' }} color="white" as="h2">
             {title}
             <span className={classes.arrow}>
               <ArrowForwardIcon />

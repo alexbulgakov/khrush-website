@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 
+import Footer from '@/components/global/Footer/Footer'
 import dynamic from 'next/dynamic'
 
 import 'normalize.css/normalize.css'
@@ -31,6 +32,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div>
       <Header />
       {children}
+      <Footer />
     </div>
   )
 }

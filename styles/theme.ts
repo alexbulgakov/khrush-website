@@ -16,7 +16,7 @@ export const theme = extendTheme({
     body: 'var(--font-exo)',
   },
   config: {
-    initialColorMode: 'system',
+    initialColorMode: 'dark',
     useSystemColorMode: true,
   },
 })
