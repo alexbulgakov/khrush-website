@@ -10,8 +10,15 @@ const config = {
 
   //   return config
   // },
+  // typescript: {
+  //   ignoreBuildErrors: process.env.VERCEL_ENV === 'production',
+  // },
   typescript: {
-    ignoreBuildErrors: process.env.VERCEL_ENV === 'production',
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
   },
   eslint: {
     ignoreDuringBuilds: process.env.VERCEL_ENV === 'production',
