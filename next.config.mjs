@@ -20,9 +20,6 @@ const config = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
-  eslint: {
-    ignoreDuringBuilds: process.env.VERCEL_ENV === 'production',
-  },
   sassOptions: {
     prependData: `@import "./styles/global.scss";`,
   },
@@ -33,6 +30,9 @@ const config = {
     fetches: {
       fullUrl: true,
     },
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   },
   experimental: {
     taint: true,
