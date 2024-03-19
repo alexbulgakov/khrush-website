@@ -1,6 +1,6 @@
 import { POSTS_QUERY, POST_QUERY } from '@/sanity/lib/queries'
+import Article from '@/components/pages/Article/ArticlePage'
 import { SanityDocument, QueryParams } from 'next-sanity'
-import Article from '@/components/pages/Article/Article'
 import { loadQuery } from '@/sanity/lib/store'
 import { client } from '@/sanity/lib/client'
 
