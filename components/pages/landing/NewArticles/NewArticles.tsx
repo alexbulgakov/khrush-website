@@ -39,7 +39,6 @@ function NewArticles({ posts }: { posts: SanityDocument[] }) {
         display="flex"
       >
         {posts.map((item) => {
-          console.log(item)
           return (
             <ListItem key={item._id}>
               <Card post={item} />

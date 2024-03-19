@@ -7,6 +7,7 @@ export const theme = extendTheme({
       ':root': {
         '--brand-color-light': 'FFD2C7',
         '--brand-color': '#FF7757',
+        '--border-radius': '7px',
       },
     },
   },
