@@ -34,6 +34,7 @@ function AboutUs() {
               lg: '65px',
               xl: '70px',
             }}
+            fontWeight="bold"
             align="center"
             lineHeight="1"
             maxW="1200px"
@@ -51,6 +52,7 @@ function AboutUs() {
               lg: '20px',
               xl: '25px',
             }}
+            fontWeight="bold"
             align="center"
           >
             Мы — команда ученых-энтузиастов, наша цель — сохранение

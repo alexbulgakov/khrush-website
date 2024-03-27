@@ -16,7 +16,7 @@ function NewArticles({ posts }: { posts: SanityDocument[] }) {
       w="100%"
     >
       <Box display="inline-block" position="relative">
-        <Text fontSize="60px" lineHeight="1">
+        <Text fontSize={{ base: '45px', lg: '60px' }} lineHeight="1">
           Новое на сайте
         </Text>
         <Box

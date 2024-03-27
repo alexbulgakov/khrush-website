@@ -83,7 +83,7 @@ export default function Hero() {
         <Image
           style={{
             objectFit: 'cover',
-            opacity: 0.3,
+            opacity: 0.5,
           }}
           src={lineDark}
           sizes="100vw"
@@ -95,7 +95,6 @@ export default function Hero() {
         <Image
           style={{
             objectFit: 'cover',
-
             opacity: 0.2,
           }}
           src={lineLight}

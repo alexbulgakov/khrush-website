@@ -15,7 +15,11 @@ function Statistics() {
       w="100%"
     >
       <Box display="inline-block" position="relative">
-        <Text alignSelf="flex-start" fontSize="60px" lineHeight="1">
+        <Text
+          fontSize={{ base: '45px', lg: '60px' }}
+          alignSelf="flex-start"
+          lineHeight="1"
+        >
           Мы изучили
         </Text>
         <Box

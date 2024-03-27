@@ -20,7 +20,7 @@ function Photos() {
       w="100%"
     >
       <Box display="inline-block" alignSelf="flex-end" position="relative">
-        <Text fontSize="60px" lineHeight="1">
+        <Text fontSize={{ base: '45px', lg: '60px' }} lineHeight="1">
           Галерея локаций
         </Text>
         <Box
