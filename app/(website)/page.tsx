@@ -1,7 +1,8 @@
 import { LAST_THREE_POSTS_QUERY } from '@/sanity/lib/queries'
-import Landing from '@/components/pages/Landing/Landing'
 import { loadQuery } from '@/sanity/lib/store'
 import { SanityDocument } from 'next-sanity'
+
+import Landing from './../../components/pages/Landing/Landing'
 
 import styles from './page.module.scss'
 
